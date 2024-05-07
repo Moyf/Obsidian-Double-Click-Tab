@@ -13,7 +13,7 @@ If your plugin does not need CSS, delete this file.
 }
 
 .titlebar-button-container.mod-right {
-	width: var(--size-4-2);
+/*	width: var(--size-4-2);*/
 	transition: width 275ms var(--anim-motion-swing);
 }
 
