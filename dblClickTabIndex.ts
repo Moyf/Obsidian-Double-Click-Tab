@@ -55,6 +55,9 @@ export default class DblClickTabPlugin extends Plugin {
 			case 'closeTab':
 				if (!side) this.closeTab(activeLeaf);
 				break;
+			case 'pinTab':
+				await app.workspace.activeLeaf.setPinned(!app.workspace.activeLeaf.pinned);
+				break;
 			case 'smartTab':
 				const state = activeLeaf.getViewState();
 				if (state.type === "empty") {
@@ -172,6 +175,7 @@ class DblClickTabSettingTab extends PluginSettingTab {
 			.addDropdown(async (drowdown: DropdownComponent) => {
 				drowdown
 					.addOption('closeTab', 'Close Tab')
+					.addOption('pinTab', 'Pin Tab')
 					.addOption('renameTabFile', 'Rename File')
 					.addOption('smartTab', 'Smart Tab')
 					.setValue(this.plugin.settings.defaultDblClickTabBehavior).onChange(async (value) => {
